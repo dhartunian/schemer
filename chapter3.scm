@@ -29,8 +29,7 @@
     (cond
      ((null? lat) '())
      ((eq? (car lat) old) (cons (car lat) 
-				(cons new
-				      (insertR new old (cdr lat)))))
+				(cons new (cdr lat))))
      (else (cons (car lat)
 		 (insertR new old (cdr lat)))))))
 
@@ -39,8 +38,7 @@
     (cond
      ((null? lat) '())
      ((eq? (car lat) old) (cons new 
-				(cons (car lat)
-				      (insertL new old (cdr lat)))))
+				(cons old (cdr lat))))
      (else (cons (car lat)
 		 (insertL new old (cdr lat)))))))
 
@@ -48,8 +46,7 @@
   (lambda (new old lat)
     (cond
      ((null? lat) '())
-     ((eq? (car lat) old) (cons new 
-				(subst new old (cdr lat))))
+     ((eq? (car lat) old) (cons new (cdr lat)))
      (else (cons (car lat)
 		 (subst new old (cdr lat)))))))
 
